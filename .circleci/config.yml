@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:11.10.1
+
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn test
