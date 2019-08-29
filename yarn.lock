@@ -845,11 +845,6 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@react-native-community/async-storage@^1.5.1":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.6.1.tgz#19be07fc1d65c77bdeb20f46108ba12076aad1c5"
-  integrity sha512-1WA28xfdhG+unkTEk/lXnqI2izv6belo0CYw7UdvaeHm8TIYT6eTmIIdGR7oiCa2xSKEnaPQqRMH6h7gyLNbww==
-
 "@react-native-community/cli-platform-android@^2.6.0", "@react-native-community/cli-platform-android@^2.9.0":
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-platform-android/-/cli-platform-android-2.9.0.tgz#28831e61ce565a2c7d1905852fce1eecfd33cb5e"
@@ -2495,11 +2490,6 @@ eventemitter3@^3.0.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
   integrity sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==
-
-events@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/events/-/events-3.0.0.tgz#9a0a0dfaf62893d92b875b8f2698ca4114973e88"
-  integrity sha512-Dc381HFWJzEOhQ+d8pkNon++bk9h6cdAoAj4iE6Q4y6xgTzySWXlKn05/TVNpjnfRqi/X0EpJEJohPjNI3zpVA==
 
 exec-sh@^0.3.2:
   version "0.3.2"
@@ -5588,21 +5578,11 @@ react-native-maps@~0.24.0:
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.24.2.tgz#19974f967cb0c2e24dab74ca879118e0932571b2"
   integrity sha512-1iNIDikp2dkCG+8DguaEviYZiMSYyvwqYT7pO2YTZvuFRDSc/P9jXMhTUnSh4wNDlEeQ47OJ09l0pwWVBZ7wxg==
 
-react-native-math-view@^2.0.16:
-  version "2.0.16"
-  resolved "https://registry.yarnpkg.com/react-native-math-view/-/react-native-math-view-2.0.16.tgz#451cc739ec4f1cb3b0fd44445c1105c13f75351e"
-  integrity sha512-BKjt6YXdEmhpPC09+IDL2BR6862JJ4JMiPaxBqx+7K2DOF4YP9Zs6MBIuV8hBAtRJENKjAG7PBmK0H870d3SFQ==
-  dependencies:
-    "@react-native-community/async-storage" "^1.5.1"
-    events "^3.0.0"
-    lodash "^4.17.11"
-    prop-types "^15.7.2"
-    react-native-webview "^6.3.1"
-
-react-native-mathjax@^2.0.0:
+"react-native-mathjax@https://github.com/navinbhaskar/react-native-mathjax/tarball/master":
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-mathjax/-/react-native-mathjax-2.0.0.tgz#dfa7c37622f28ab5b384cc0c2880e37790d7af78"
-  integrity sha512-uyOX/sIiApVB28KlEk9A4g78eEu2pMcsNsGVp3JzCJnQsB3Twn8Ok292hvUNATger4hs11zXo+yRC8uhgRVqjw==
+  resolved "https://github.com/navinbhaskar/react-native-mathjax/tarball/master#09afcbeee903af90635c1e038bd0a758b9177182"
+  dependencies:
+    react-native-autoheight-webview "^1.2.2"
 
 react-native-modal-datetime-picker@^7.5.0:
   version "7.5.0"
@@ -5684,7 +5664,7 @@ react-native-video@^5.0.0:
     prop-types "^15.5.10"
     shaka-player "^2.4.4"
 
-react-native-webview@^6.3.1, react-native-webview@^6.9.0:
+react-native-webview@^6.9.0:
   version "6.9.0"
   resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-6.9.0.tgz#d637618fe65ddc9972a55a1d181fd6879a2fcebd"
   integrity sha512-pipcyQNhSjSfMyle+JugLwYXJBJ0rQCnJOgkz7EcsZbrAvGjFbQOAjDRYi86y9Ibw+h+sjdhPWcLi/kSHScc+w==
