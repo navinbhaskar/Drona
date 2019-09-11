@@ -16,12 +16,13 @@ export default class testList extends Component {
 
   constructor(props) {
     super(props);
+    this.handleBackPress = this.handleBackPress.bind(this);
     this._renderList = this._renderList.bind(this);
     this.state = {
     isReady: true,
     test_list: []
     }
-  } 
+  }
 
   handleBackPress = () => {
     this.props.navigation.goBack(null);
@@ -61,7 +62,7 @@ _renderList({item, index}){
                       <View style={{flexDirection:'row'}}>
                           <Text style={{fontFamily: 'Montserrat-Regular', fontSize: 0.025 * SCREEN_WIDTH, color:'black'}}>{index+1}: {blocks}</Text>
                       </View>
-                  
+
                 )
               })
             }
@@ -77,21 +78,20 @@ _renderList({item, index}){
   }
 
   componentDidMount(){
-    console.log("nalonaslanbsjaL: "+JSON.stringify(this.props.navigation.state.params));
     BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
   }
 
   render() {
     return (
       <Container style={{ flex: 1, backgroundColor: '#e2e2e2'}}>
-        <Text style={{fontFamily: 'Montserrat-Bold', fontSize: 0.06 * SCREEN_WIDTH, paddingBottom: 0.01 * SCREEN_HEIGHT, paddingTop: 0.05 * SCREEN_HEIGHT, color: 'black', textAlign: 'center'}}>Test List</Text> 
+        <Text style={{fontFamily: 'Montserrat-Bold', fontSize: 0.06 * SCREEN_WIDTH, paddingBottom: 0.01 * SCREEN_HEIGHT, paddingTop: 0.05 * SCREEN_HEIGHT, color: 'black', textAlign: 'center'}}>Test List</Text>
         <Content style={{padding:2}}>
         { this.state.isReady &&
-            <FlatList 
+            <FlatList
                 data={this.props.navigation.state.params.test_list}
                 extraData={this.state}
                 renderItem={this._renderList}
-                />  
+                />
          }
          { !this.state.isReady &&
           <Spinner color='red' />
@@ -110,7 +110,7 @@ _renderList({item, index}){
             onPress={() => this.props.navigation.navigate('createTest')}>
             <Icon name="add" />
           </Fab>
-        </View>            
+        </View>
       </Container>
     );
   }

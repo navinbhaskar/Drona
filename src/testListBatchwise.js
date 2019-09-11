@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Header, Content, Button, Text, H1, Icon, H3, Footer , ListItem, Spinner} from 'native-base';
-import {View, Image, FlatList, TouchableNativeFeedback, Dimensions } from 'react-native';
+import {View, Image, FlatList, TouchableNativeFeedback, Dimensions , BackHandler} from 'react-native';
 import axios from "axios";
 import {NavigationActions} from 'react-navigation';
 
@@ -16,6 +16,7 @@ static navigationOptions = {
 constructor(props) {
     super(props);
     this._renderList = this._renderList.bind(this);
+    this.handleBackPress = this.handleBackPress.bind(this);
     this.state = {
     random: false,
     isReady: false,
@@ -37,7 +38,7 @@ _renderList({item, index}){
 }) ))
   return (
     <View style={{flexDirection:'column', width: '100%', flex:21, padding:0.03 * SCREEN_HEIGHT, backgroundColor: '#ffffff', marginBottom: 0.02 * SCREEN_HEIGHT, borderRadius: 0.01 * SCREEN_HEIGHT, alignItems: 'center', justifyContent: 'center'}}>
-      <TouchableNativeFeedback 
+      <TouchableNativeFeedback
                   onPress={() => {
                     const navigateAction = NavigationActions.navigate({
                       routeName: 'testList',
@@ -99,7 +100,7 @@ _renderList({item, index}){
               <Text style={{fontFamily: 'Montserrat-Regular', fontSize: 0.02 * SCREEN_WIDTH, color: 'black', alignSelf:'center'}}>SAT</Text>
             </View>
               }
-            
+
           </View>
             <View style={{alignItems:'flex-start'}}>
               <Text style={{fontFamily: 'Montserrat-SemiBold', fontSize: 0.03 * SCREEN_WIDTH,alignSelf:'flex-start', color:'#f32a76'}}>{item.class_start_timing.slice(0,5)} - {item.class_end_timing.slice(0,5)}</Text>
@@ -111,17 +112,25 @@ _renderList({item, index}){
           </View>
           </View>
 
-          
+
       </TouchableNativeFeedback>
     </View>
 
 
-  );
-}
+    );
+  }
 
+  handleBackPress = () => {
+    this.props.navigation.goBack(null);
+    return true;
+  };
 
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+  }
 
   componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
     axios.get(`https://classcast-198812.appspot.com/teachersapp/batch_list`)
         .then(function (response){
             console.log(JSON.stringify(response.data));
@@ -145,20 +154,20 @@ _renderList({item, index}){
   render() {
     return (
       <Container style={{backgroundColor:'#D8EBED', flex: 1}}>
-      <Text style={{fontFamily: 'Montserrat-Bold', fontSize: 0.06 * SCREEN_WIDTH, paddingBottom: 0.01 * SCREEN_HEIGHT, paddingTop: 0.05 * SCREEN_HEIGHT, color: 'black', textAlign: 'center'}}>Performance Report</Text> 
+      <Text style={{fontFamily: 'Montserrat-Bold', fontSize: 0.06 * SCREEN_WIDTH, paddingBottom: 0.01 * SCREEN_HEIGHT, paddingTop: 0.05 * SCREEN_HEIGHT, color: 'black', textAlign: 'center'}}>Performance Report</Text>
         <Content style={{padding:10}}>
         { this.state.isReady &&
-          <FlatList 
+          <FlatList
               data={this.state.recepients}
               extraData={this.state}
               renderItem={this._renderList}
-          />            
+          />
         }
         { !this.state.isReady &&
           <Spinner color='red' />
         }
         </Content>
-            
+
       </Container>
     );
   }

@@ -8,12 +8,13 @@ export default {
  container: {
    paddingTop: 2.5 * vh,
    flex: 1,
-   backgroundColor: '#f0f3fa'
+   backgroundColor: '#3343bd'
  },
  navItemStyle: {
-   padding: 2 * vh,
-   paddingHorizontal: 8 * vw,
-   color: '#211482',
+   paddingBottom: 2 * vh,
+   paddingTop: 2 * vh,
+   paddingHorizontal: 4 * vw,
+   color: '#ffffff',
    fontSize: 3.5 * vw,
    fontFamily: 'Montserrat-SemiBold',
  },
@@ -47,34 +48,40 @@ export default {
  },
  footerContainer: {
    padding: 0.4 * vh,
-   backgroundColor: '#1d136b'
+   backgroundColor: '#3bc8fe'
  },
   userImage: {
    height: '100%',
    width: '100%',
-   alignSelf: 'center',
-   borderRadius: 15 * vw,
+   alignSelf: 'center'
  },
  userImageContainer: {
-  height: 30 * vw,
-  width: 30 * vw,
-  borderRadius: 15 * vw,
-  padding: 0.6 * vw,
-  backgroundColor: '#29206f'
+  height: 15 * vw,
+  width: 15 * vw,
+  borderRadius: 7.5 * vw,
+  padding: 1 * vw,
+  backgroundColor: '#ffffff'
  },
   userName: {
-   fontSize: 3 * vh,
-   margin: 1 * vh,
-   color: '#211482',
-   fontFamily: 'Montserrat-SemiBold',
+   fontSize: 4 * vh,
+   marginLeft: 2 * vh,
+   color: '#ffffff',
+   fontFamily: 'Montserrat-Bold',
  },
  class: {
-  fontSize: 2 * vh,
-  color: '#211482',
+  fontSize: 3 * vw,
+  color: '#3bc8fe',
   marginLeft: 1 * vh,
-  marginTop: 0.5 * vh,
   marginBottom: 0.5 * vh,
   fontFamily: 'Montserrat-SemiBold',
+},
+viewStyleForLine: {
+  marginTop: 3 * vh,
+  marginBottom: 3 * vh,
+  height: 0.1 * vw,
+  width: '80%',
+  backgroundColor: '#37c4fa',
+  alignSelf: 'center'
 },
  aboutUserSection:{
    marginTop: 2 * vh,
